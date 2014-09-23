@@ -93,6 +93,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -126,7 +127,10 @@ INSTALLED_APPS = (
     'spaceship_spotter_api',
 
     'rest_framework',
+    'corsheaders',
 )
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

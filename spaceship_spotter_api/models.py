@@ -9,6 +9,9 @@ class Report(models.Model):
     lon = models.FloatField()
     lat = models.FloatField()
 
+    def __unicode__(self):
+        return "Report-(%s)-%s,%s" % (self.timestamp, self.lon, self.lat)
+
 class Reading(models.Model):
     sensor = models.CharField(max_length=255)
     type = models.IntegerField()
@@ -16,6 +19,9 @@ class Reading(models.Model):
     timestamp = models.DateTimeField()
 
     report = models.ForeignKey(Report)
+
+    def __unicode__(self):
+        return "Reading-(%s)-%s-%s-%s" % (self.timestamp, self.sensor, self.type, self.accuracy)
 
 class Values(models.Model):
     reading = models.ForeignKey(Reading)
